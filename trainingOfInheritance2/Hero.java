@@ -21,4 +21,17 @@ public class Hero extends Character {
         super(name, hp, offence, defence);
         this.weapon = weapon;
     }
+
+    @Override
+    public void attack(Character opponent) {
+
+        int damage = super.getOffense() + this.getWeapon() + opponent.getDefense();
+
+        if (damage > 0) {
+            opponent.setHp(opponent.getHp() - damage);
+            System.out.println(super.getName() + " は " + opponent.getName() + " に " + damage + "のダメージを与えた!");
+        }else {
+            System.out.println("ミス! " + super.getName() + " は " + opponent.getName() + " に " + "ダメージを与えられない!");
+        }
+    }
 }
