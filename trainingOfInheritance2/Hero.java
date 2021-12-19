@@ -1,8 +1,9 @@
 package trainingOfInheritance2;
 
 import test.Character;
+import test.MagicAttack;
 
-public class Hero extends Character {
+public class Hero extends Character implements MagicAttack {
 
     private int weapon;
 
@@ -33,5 +34,12 @@ public class Hero extends Character {
         }else {
             System.out.println("ミス! " + super.getName() + " は " + opponent.getName() + " に " + "ダメージを与えられない!");
         }
+    }
+
+    @Override
+    public void magic_attack(Character opponent) {
+        int damage = 5;
+        opponent.setHp(opponent.getHp() - damage);
+        System.out.println(this.getName() + " は魔法で " + opponent.getName() + " に " + damage + " のダメージを与えた！");
     }
 }
